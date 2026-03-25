@@ -1,0 +1,59 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "create",
+        "tableId": "execution_log",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "user_phone",
+              "fieldValue": "={{ $('setar_user').item.json.telefone }}"
+            },
+            {
+              "fieldId": "user_id",
+              "fieldValue": "={{ $('setar_user').item.json.id_user }}"
+            },
+            {
+              "fieldId": "user_plan",
+              "fieldValue": "premium"
+            },
+            {
+              "fieldId": "message_type",
+              "fieldValue": "image"
+            },
+            {
+              "fieldId": "extracted_data",
+              "fieldValue": "={{ JSON.stringify({ text: $json.full_markdown, pages: $json.page_count }) }}"
+            },
+            {
+              "fieldId": "source_workflow",
+              "fieldValue": "premium"
+            },
+            {
+              "fieldId": "event_type",
+              "fieldValue": "transcription"
+            },
+            {
+              "fieldId": "status",
+              "fieldValue": "completed"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [1520, -400],
+      "id": "log-ocr-image",
+      "name": "Log: OCR image",
+      "credentials": {
+        "supabaseApi": {
+          "id": "1ENA7UIm6ILehilJ",
+          "name": "Supabase account"
+        }
+      },
+      "continueOnFail": true
+    }
+  ],
+  "connections": {}
+}
