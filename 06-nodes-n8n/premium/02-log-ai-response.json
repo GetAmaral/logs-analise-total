@@ -1,0 +1,67 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "create",
+        "tableId": "execution_log",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "user_phone",
+              "fieldValue": "={{ $('setar_user').item.json.telefone }}"
+            },
+            {
+              "fieldId": "user_id",
+              "fieldValue": "={{ $('setar_user').item.json.id_user }}"
+            },
+            {
+              "fieldId": "user_plan",
+              "fieldValue": "premium"
+            },
+            {
+              "fieldId": "ai_message",
+              "fieldValue": "={{ $json.parsed_output?.mensagem || $json.mensagem || '' }}"
+            },
+            {
+              "fieldId": "ai_action",
+              "fieldValue": "={{ $json.parsed_output?.acao || $json.acao || 'padrao' }}"
+            },
+            {
+              "fieldId": "ai_tools_called",
+              "fieldValue": "={{ JSON.stringify($json.parsed_output?.tool || null) }}"
+            },
+            {
+              "fieldId": "ai_full_response",
+              "fieldValue": "={{ JSON.stringify({ acao: $json.parsed_output?.acao, mensagem: $json.parsed_output?.mensagem, tool: $json.parsed_output?.tool }) }}"
+            },
+            {
+              "fieldId": "source_workflow",
+              "fieldValue": "premium"
+            },
+            {
+              "fieldId": "event_type",
+              "fieldValue": "ai_response"
+            },
+            {
+              "fieldId": "status",
+              "fieldValue": "completed"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [1320, -300],
+      "id": "log-ai-response",
+      "name": "Log: ai_response",
+      "credentials": {
+        "supabaseApi": {
+          "id": "1ENA7UIm6ILehilJ",
+          "name": "Supabase account"
+        }
+      },
+      "continueOnFail": true
+    }
+  ],
+  "connections": {}
+}

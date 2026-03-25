@@ -1,0 +1,63 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "create",
+        "tableId": "execution_log",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "user_phone",
+              "fieldValue": "={{ $('setar_user').item.json.telefone }}"
+            },
+            {
+              "fieldId": "user_id",
+              "fieldValue": "={{ $('setar_user').item.json.id_user }}"
+            },
+            {
+              "fieldId": "user_plan",
+              "fieldValue": "premium"
+            },
+            {
+              "fieldId": "action_type",
+              "fieldValue": "criar_evento"
+            },
+            {
+              "fieldId": "action_input",
+              "fieldValue": "={{ JSON.stringify({ nome: $json.tool?.nome_evento || $json.parsed_output?.tool?.nome_evento, descricao: $json.tool?.descricao_evento || $json.parsed_output?.tool?.descricao_evento, inicio: $json.tool?.data_inicio_evento || $json.parsed_output?.tool?.data_inicio_evento, fim: $json.tool?.data_fim_evento || $json.parsed_output?.tool?.data_fim_evento }) }}"
+            },
+            {
+              "fieldId": "action_success",
+              "fieldValue": true
+            },
+            {
+              "fieldId": "source_workflow",
+              "fieldValue": "premium"
+            },
+            {
+              "fieldId": "event_type",
+              "fieldValue": "action_executed"
+            },
+            {
+              "fieldId": "status",
+              "fieldValue": "completed"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [1820, -300],
+      "id": "log-action-evento",
+      "name": "Log: action criar_evento",
+      "credentials": {
+        "supabaseApi": {
+          "id": "1ENA7UIm6ILehilJ",
+          "name": "Supabase account"
+        }
+      },
+      "continueOnFail": true
+    }
+  ],
+  "connections": {}
+}

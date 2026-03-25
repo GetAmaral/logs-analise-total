@@ -1,0 +1,55 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "create",
+        "tableId": "execution_log",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "user_phone",
+              "fieldValue": "={{ $('trigger-whatsapp').item.json.messages[0].from }}"
+            },
+            {
+              "fieldId": "user_message",
+              "fieldValue": "={{ $('trigger-whatsapp').item.json.messages[0].text?.body || $('trigger-whatsapp').item.json.messages[0].button?.text || '[midia]' }}"
+            },
+            {
+              "fieldId": "message_type",
+              "fieldValue": "={{ $('trigger-whatsapp').item.json.messages[0].type }}"
+            },
+            {
+              "fieldId": "whatsapp_timestamp",
+              "fieldValue": "={{ new Date(parseInt($('trigger-whatsapp').item.json.messages[0].timestamp) * 1000).toISOString() }}"
+            },
+            {
+              "fieldId": "source_workflow",
+              "fieldValue": "main"
+            },
+            {
+              "fieldId": "event_type",
+              "fieldValue": "message_received"
+            },
+            {
+              "fieldId": "status",
+              "fieldValue": "completed"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [420, 0],
+      "id": "log-msg-received",
+      "name": "Log: message_received",
+      "credentials": {
+        "supabaseApi": {
+          "id": "kQkN5PrZm2GihQfS",
+          "name": "Total Supabase"
+        }
+      },
+      "continueOnFail": true
+    }
+  ],
+  "connections": {}
+}

@@ -1,0 +1,63 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "create",
+        "tableId": "execution_log",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "user_phone",
+              "fieldValue": "={{ $('setar_user').item.json.telefone }}"
+            },
+            {
+              "fieldId": "user_id",
+              "fieldValue": "={{ $('setar_user').item.json.id_user }}"
+            },
+            {
+              "fieldId": "user_plan",
+              "fieldValue": "premium"
+            },
+            {
+              "fieldId": "user_message",
+              "fieldValue": "={{ $('Merge1').first().json.mensagem }}"
+            },
+            {
+              "fieldId": "message_type",
+              "fieldValue": "={{ $('premium').item.json.body.messageType || 'text' }}"
+            },
+            {
+              "fieldId": "branch",
+              "fieldValue": "={{ typeof $json.text === 'string' ? JSON.parse($json.text).branch : 'unknown' }}"
+            },
+            {
+              "fieldId": "source_workflow",
+              "fieldValue": "premium"
+            },
+            {
+              "fieldId": "event_type",
+              "fieldValue": "classification"
+            },
+            {
+              "fieldId": "status",
+              "fieldValue": "completed"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [1020, -300],
+      "id": "log-classification",
+      "name": "Log: classification",
+      "credentials": {
+        "supabaseApi": {
+          "id": "1ENA7UIm6ILehilJ",
+          "name": "Supabase account"
+        }
+      },
+      "continueOnFail": true
+    }
+  ],
+  "connections": {}
+}

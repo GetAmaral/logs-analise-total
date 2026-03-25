@@ -1,0 +1,63 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "create",
+        "tableId": "execution_log",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "user_phone",
+              "fieldValue": "={{ $('setar_user').item.json.telefone }}"
+            },
+            {
+              "fieldId": "user_id",
+              "fieldValue": "={{ $('setar_user').item.json.id_user }}"
+            },
+            {
+              "fieldId": "user_plan",
+              "fieldValue": "premium"
+            },
+            {
+              "fieldId": "action_type",
+              "fieldValue": "registrar_gasto"
+            },
+            {
+              "fieldId": "action_input",
+              "fieldValue": "={{ JSON.stringify({ nome: $json.tool?.nome_gasto || $json.parsed_output?.tool?.nome_gasto, valor: $json.tool?.valor_gasto || $json.parsed_output?.tool?.valor_gasto, categoria: $json.tool?.categoria_gasto || $json.parsed_output?.tool?.categoria_gasto, tipo: $json.tool?.tipo_gasto || $json.parsed_output?.tool?.tipo_gasto, data: $json.tool?.data_gasto || $json.parsed_output?.tool?.data_gasto }) }}"
+            },
+            {
+              "fieldId": "action_success",
+              "fieldValue": true
+            },
+            {
+              "fieldId": "source_workflow",
+              "fieldValue": "premium"
+            },
+            {
+              "fieldId": "event_type",
+              "fieldValue": "action_executed"
+            },
+            {
+              "fieldId": "status",
+              "fieldValue": "completed"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [1820, -500],
+      "id": "log-action-gasto",
+      "name": "Log: action registrar_gasto",
+      "credentials": {
+        "supabaseApi": {
+          "id": "1ENA7UIm6ILehilJ",
+          "name": "Supabase account"
+        }
+      },
+      "continueOnFail": true
+    }
+  ],
+  "connections": {}
+}
